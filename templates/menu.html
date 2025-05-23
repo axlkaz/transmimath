@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>TransmiMath</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>TransmiMath</h1>
+    <h2>MENU</h2>
+    <button onclick="location.href='{{ url_for('option', opt=1) }}'">[1] Calcular día Contagiados Y%</button>
+    <button onclick="location.href='{{ url_for('option', opt=2) }}'">[2] Mostrar Matriz de conexiones</button>
+    <button onclick="location.href='{{ url_for('option', opt=3) }}'">[3] Verificar Conexiones</button>
+    <button onclick="location.href='{{ url_for('option', opt=4) }}'">[4] Verificar Trabajador Contagiado</button>
+    <button onclick="location.href='{{ url_for('option', opt=5) }}'">[5] Mostrar Simulaciones</button>
+  </div>
+</body>
+</html>

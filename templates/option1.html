@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Opción 1</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>Calcular día Contagiados Y%</h2>
+    <form method="post">
+      <label>Número de empleados:</label>
+      <input name="N" type="number" min="60" max="120" placeholder="60-120" required>
+      <label>Tasa de contagio (%):</label>
+      <input name="tasa" type="number" step="0.1" min="1" max="100" placeholder="1-100" required>
+      <label>Objetivo de contagio Y (%):</label>
+      <input name="Y" type="number" step="0.1" min="1" max="100" placeholder="1-100" required>
+      <label>Empleado inicial:</label>
+      <input name="emp0" type="number" placeholder="1-N" required>
+      <button type="submit">Simular</button>
+    </form>
+  </div>
+</body>
+</html>

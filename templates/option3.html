@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Opción 3</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>Verificar Conexiones</h2>
+    <form method="post">
+      <label>Empleado 1:</label>
+      <input name="e1" type="number" required>
+      <label>Empleado 2:</label>
+      <input name="e2" type="number" required>
+      <button type="submit">Verificar</button>
+    </form>
+  </div>
+</body>
+</html>

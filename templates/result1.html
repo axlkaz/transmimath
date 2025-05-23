@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Resultado Simulación</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>Resultado</h2>
+    <p>Días necesarios: {{ dias }}</p>
+    <p>Total contagiados: {{ total }} de {{ N }}</p>
+    <button onclick="location.href='{{ url_for('menu') }}'">Volver al menú</button>
+  </div>
+</body>
+</html>

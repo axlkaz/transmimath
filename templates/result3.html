@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Resultado Conexión</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>Resultado</h2>
+    {% if dist > 0 %}
+      <div class="diagram">
+        {% for node in path %}
+          <div class="node {% if loop.first %}start{% elif loop.last %}end{% endif %}">{{ node }}</div>
+          {% if not loop.last %}
+            <div class="arrow">↑</div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No existe ruta posible.</p>
+    {% endif %}
+    <button onclick="location.href='{{ url_for('menu') }}'">Menú</button>
+  </div>
+</body>
+</html>

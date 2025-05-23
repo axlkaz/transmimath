@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+  <title>Matriz</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    table {
+      border-collapse: collapse;
+      margin: 0 auto;
+      font-size: 18px;
+      font-family: Arial, sans-serif;
+    }
+    th, td {
+      border: 1px solid #3366FF;
+      padding: 8px 12px;
+      text-align: center;
+      border-radius: 10px;
+    }
+    th {
+      background-color: #545454;
+      color: white;
+      border-radius: 10px;
+    }
+    .matrix-1 {
+      color: #3366FF; /* Azul */
+      font-weight: bold;
+    }
+    .matrix-0 {
+      color: #FF0000; /* Rojo */
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align:center; font-family: Arial, sans-serif; font-weight:bold; color:white;">Matriz de conexiones</h2>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        {% for i in range(matrix|length) %}
+          <th>{{ i + 1 }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in matrix %}
+        <tr>
+          <th>{{ loop.index }}</th>
+          {% for val in row %}
+            {% if val == 1 %}
+              <td class="matrix-1">{{ val }}</td>
+            {% else %}
+              <td class="matrix-0">{{ val }}</td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div style="text-align:center; margin-top:20px;">
+    <a href="{{ url_for('menu') }}" class="btn-link">Menú</a>
+  </div>
+</body>
+</html>

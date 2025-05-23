@@ -1,0 +1,146 @@
+
+/* Global styles */
+body {
+    background-color: #000000;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #3366FF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Container for forms and menu */
+.container {
+    background-color: #333333;
+    margin: 50px auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 15px;
+}
+
+/* Headings */
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+h2, h3 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form labels and inputs */
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+input[type="number"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #3366FF;
+    color: #FFFFFF;
+}
+
+input[type="number"]::placeholder {
+    color: #FFFFFF;
+}
+
+/* Buttons */
+button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #3366FF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #254FCC;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 2px solid #3366FF;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Matrix cells */
+.matrix-1 {
+    color: #3366FF;
+    font-weight: bold;
+}
+
+.matrix-0 {
+    color: #FF0000;
+}
+
+/* Diagram for option 3 */
+.diagram {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.node {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: #FFFFFF;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.node.start {
+    background-color: #3366FF;
+    color: #FFFFFF;
+}
+
+.node.end {
+    background-color: #FF0000;
+    color: #FFFFFF;
+}
+
+.arrow {
+    font-size: 24px;
+    margin: 5px;
+    color: #FFFFFF;
+}
