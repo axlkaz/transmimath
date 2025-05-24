@@ -4,12 +4,26 @@
   <meta charset="utf-8">
   <title>Resultado Simulación</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    .error {
+      color: #FF3333;
+      font-weight: bold;
+      margin-top: 10px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <h2>Resultado</h2>
     <p>Días necesarios: {{ dias }}</p>
     <p>Total contagiados: {{ total }} de {{ N }}</p>
+    <p>Objetivo de contagio: {{ objetivo }} empleados</p>
+
+    {% if not alcanzado %}
+      <p class="error">No se alcanzó el número objetivo de contagiados.</p>
+    {% endif %}
+
     <button onclick="location.href='{{ url_for('menu') }}'">Volver al menú</button>
   </div>
 </body>
