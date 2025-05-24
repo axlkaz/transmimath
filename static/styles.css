@@ -1,12 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito&display=swap');
 
 /* Global styles */
 body {
-    background-color: #000000;
-    color: #FFFFFF;
-    font-family: Arial, sans-serif;
-    font-size: 18px;
+    background: linear-gradient(90deg, #000000, #3366FF);
+    color: white;
+    font-family: 'Gabarito', sans-serif;
+    font-weight: normal;
+    font-size: 25px;
     margin: 0;
     padding: 0;
+    color: #3366FF;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Gabarito', sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #3366FF;
 }
 
 a {
@@ -20,44 +33,32 @@ a:hover {
 
 /* Container for forms and menu */
 .container {
-    background-color: #333333;
-    margin: 50px auto;
+    /*background: linear-gradient(0deg, #3366FF, #FFFFFF);*/
+    background-color: rgba(255, 255, 255, 0.9); /* blanco con 70% de opacidad */
+    margin: 160px auto;
     padding: 20px;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 15px;
-}
-
-/* Headings */
-h1 {
-    font-size: 32px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-h2, h3 {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
+    width: 100%;
+    max-width: 1500px;
+    border-radius: 5px;
 }
 
 /* Form labels and inputs */
 label {
+    color: #3366FF;
     display: block;
     margin-bottom: 10px;
     font-weight: normal;
 }
 
 input[type="number"] {
-    width: 95%;
-    padding: 10px;
+    width: 98%;
+    padding: 15px;
     margin-bottom: 15px;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: #3366FF;
     color: #FFFFFF;
+    font-size: 18px;
 }
 
 input[type="number"]::placeholder {
@@ -66,16 +67,17 @@ input[type="number"]::placeholder {
 
 /* Buttons */
 button {
+    font-family: 'Gabarito', sans-serif;
     display: block;
     width: 100%;
     padding: 15px;
     background-color: #3366FF;
     color: #FFFFFF;
     border: none;
-    border-radius: 15px;
-    font-size: 20px;
+    border-radius: 5px;
+    font-size: 25px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 button:hover {
@@ -119,8 +121,8 @@ th, td {
     width: 60px;
     height: 60px;
     border-radius: 30px;
-    background-color: #FFFFFF;
-    color: #000000;
+    background-color: #000000;
+    color: #FFFFFF;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -142,5 +144,5 @@ th, td {
 .arrow {
     font-size: 24px;
     margin: 5px;
-    color: #FFFFFF;
+    color: #3366FF;
 }
