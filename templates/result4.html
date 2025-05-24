@@ -7,8 +7,8 @@
 </head>
 <body>
   <div class="container">
-    <h2>Estado Trabajador {{ t }}</h2>
-    <p>{{ 'Contagiado' if status else 'No contagiado' }}</p>
+    <h2>Trabajador {{ t }}</h2>
+    <p>{{ 'Estado: Contagiado' if status else 'Estado: No contagiado' }}</p>
     <button onclick="location.href='{{ url_for('menu') }}'">Menú</button>
   </div>
 </body>
