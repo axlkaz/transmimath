@@ -4,6 +4,11 @@
   <meta charset="utf-8">
   <title>Opción 1</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -11,14 +16,40 @@
     <form method="post">
       <label>Número de empleados:</label>
       <input name="N" type="number" min="60" max="120" placeholder="60-120" required>
+
       <label>Tasa de contagio (%):</label>
       <input name="tasa" type="number" step="0.1" min="1" max="100" placeholder="1-100" required>
+
       <label>Objetivo de contagio Y (%):</label>
       <input name="Y" type="number" step="0.1" min="1" max="100" placeholder="1-100" required>
-      <label>Empleado inicial:</label>
-      <input name="emp0" type="number" placeholder="1-N" required>
+
+      <label>
+        <input type="checkbox" name="manual_checkbox" id="manualCheckbox">
+        Ingresar empleado inicial manualmente
+      </label>
+
+      <div id="manualInput" class="hidden">
+        <label>Empleado inicial:</label>
+        <input name="emp0" type="number" min="1" placeholder="1-N">
+      </div>
+
       <button type="submit">Simular</button>
+
+      {% if error %}
+        <p style="color: #FF3333; font-weight: bold; margin-top: 10px;">
+          {{ error }}
+        </p>
+      {% endif %}
     </form>
   </div>
+
+  <script>
+    const checkbox = document.getElementById('manualCheckbox');
+    const inputBlock = document.getElementById('manualInput');
+
+    checkbox.addEventListener('change', function() {
+      inputBlock.classList.toggle('hidden', !this.checked);
+    });
+  </script>
 </body>
 </html>
