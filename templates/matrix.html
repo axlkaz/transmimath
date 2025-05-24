@@ -1,64 +1,115 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <title>Matriz</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <meta charset="UTF-8">
+  <title>Matriz de conexiones</title>
   <style>
-    table {
-      border-collapse: collapse;
-      margin: 0 auto;
-      font-size: 18px;
+    body {
+      background-color: black;
+      color: white;
       font-family: Arial, sans-serif;
     }
-    th, td {
-      border: 1px solid #3366FF;
-      padding: 8px 12px;
+    h2 {
       text-align: center;
-      border-radius: 10px;
+      font-weight: bold;
+      font-size: 30px;
     }
-    th {
-      background-color: #545454;
+    .matrix-container {
+      max-width: 95vw;
+      max-height: 80vh;
+      overflow: auto;
+      margin: auto;
+      border-radius: 15px;
+      padding: 10px;
+      /* Sin fondo gris: fondo transparente */
+    }
+    table {
+      border-collapse: collapse;
+    }
+    td, th {
+      padding: 8px;
+      text-align: center;
+      min-width: 30px;
+      font-size: 16px;
+      border: 1px solid white;
+    }
+    td {
       color: white;
-      border-radius: 10px;
     }
-    .matrix-1 {
-      color: #3366FF; /* Azul */
+    .one {
+      color: #3366FF; /* azul */
       font-weight: bold;
     }
-    .matrix-0 {
-      color: #FF0000; /* Rojo */
-      font-weight: bold;
+    .zero {
+      color: #FF0000; /* rojo */
+    }
+    .sticky-top {
+      position: sticky;
+      top: 0;
+      background-color: #333;
+      z-index: 2;
+    }
+    .sticky-left {
+      position: sticky;
+      left: 0;
+      background-color: #333;
+      z-index: 1;
+    }
+    .sticky-corner {
+      z-index: 3;
+      background-color: #333;
+    }
+    a {
+      color: #3366FF;
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      font-size: 18px;
+    }
+    /* Botón menú ajustado */
+    button {
+      display: block;
+      width: 97%;
+      margin: 20px auto 0 auto;
+      padding: 10px 0;
+      background-color: #3366FF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 25px;
+      cursor: pointer;
+      font-family: 'Gabarito', sans-serif;
+    }
+    button:hover {
+      background-color: #254FCC;
     }
   </style>
 </head>
 <body>
-  <h2 style="text-align:center; font-family: Arial, sans-serif; font-weight:bold; color:white;">Matriz de conexiones</h2>
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        {% for i in range(matrix|length) %}
-          <th>{{ i + 1 }}</th>
-        {% endfor %}
-      </tr>
-    </thead>
-    <tbody>
-      {% for row in matrix %}
+  <h2>Matriz de conexiones</h2>
+  <div class="matrix-container">
+    <table>
+      <thead>
         <tr>
-          <th>{{ loop.index }}</th>
-          {% for val in row %}
-            {% if val == 1 %}
-              <td class="matrix-1">{{ val }}</td>
-            {% else %}
-              <td class="matrix-0">{{ val }}</td>
-            {% endif %}
+          <th class="sticky-top sticky-left sticky-corner"></th>
+          {% for j in range(matrix[0]|length) %}
+            <th class="sticky-top">{{ j + 1 }}</th>
           {% endfor %}
         </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-  <div style="text-align:center; margin-top:20px;">
-    <button onclick="location.href='{{ url_for('menu') }}'">Menú</button>
+      </thead>
+      <tbody>
+        {% for row in matrix %}
+          <tr>
+            <th class="sticky-left">{{ loop.index }}</th>
+            {% for val in row %}
+              <td class="{{ 'one' if val == 1 else 'zero' }}">{{ val }}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </div>
+  <!-- Botón menú -->
+  <button onclick="location.href='{{ url_for('menu') }}'">Volver al menú</button>
 </body>
 </html>
