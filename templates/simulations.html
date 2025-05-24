@@ -8,10 +8,19 @@
 <body>
   <div class="container">
     <h2>Historial de Simulaciones</h2>
+
     {% for sim in sims %}
       <h3>Simulación {{ loop.index }}</h3>
       <p>Empleado inicial: {{ sim.emp0 }}</p>
-      <p>Total contagiados: {{ sim.total }}</p>
+      <p>Total contagiados: {{ sim.total }} de {{ sim.objetivo }}</p>
+      <p>Objetivo de contagio: {{ sim.objetivo }} empleados</p>
+
+      {% if sim.total < sim.objetivo %}
+        <p style="color: #FF3333; font-weight: bold;">
+          No se alcanzó el número objetivo de contagiados.
+        </p>
+      {% endif %}
+
       <table>
         <thead>
           <tr>
@@ -23,14 +32,16 @@
         <tbody>
           {% for day_infections in sim.hist %}
             <tr>
-              <td>{{ loop.index0 }}</td>
+              <td>{{ loop.index }}</td>  <!-- Ahora comienza en 1 -->
               <td>{{ day_infections|length }}</td>
               <td>{{ day_infections | join(', ') }}</td>
             </tr>
           {% endfor %}
         </tbody>
       </table>
+      <br>
     {% endfor %}
+
     <button onclick="location.href='{{ url_for('menu') }}'">Volver al menú</button>
   </div>
 </body>
