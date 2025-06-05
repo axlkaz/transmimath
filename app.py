@@ -139,6 +139,16 @@ def option(opt):
     elif opt == 5:
         return render_template('simulations.html', sims=simulations)
 
+    elif opt == 6:
+        creditos = [
+            "Tremolada Villanueva, Jeronimo Alonso - U202413264",
+            "Retamozo Meza, Javier Xande - U202423385",
+            "Um Camahuali, Leonardo Fabricio - U202411355",
+            "Vera Suarez, Rodrigo - U202422941",
+
+        ]
+        return render_template('credits.html', creditos=creditos)
+
     else:
         return redirect(url_for('menu'))
 
