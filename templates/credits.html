@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Créditos</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Créditos</h1>
+    <p>Este proyecto fue desarrollado por:</p>
+    <ul>
+      {% for nombre in creditos %}
+        <li>{{ nombre }}</li>
+      {% endfor %}
+    </ul>
+    <button onclick="location.href='{{ url_for('menu') }}'">Volver al menú principal</button>
+  </div>
+</body>
+</html>
